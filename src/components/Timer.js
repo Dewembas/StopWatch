@@ -6,22 +6,22 @@ import { formatTime } from '../c/idex';
 
 
 const Timer = () => {
-  const { timer, isActive, isPaused, handleStart, handlePause, handleResume, handleReset, handleStop } = useTimer(0)
+  const { timer, isActive, isPaused, start, pause, resume, reset, stop } = useTimer(0)
 
   return (
     <div className="app">
-      <h3>React Stopwatch </h3>
+      <h3>Stopwatch </h3>
       <div className='stopwatch-card'>
         <p>{formatTime(timer)}</p>
         <div className='buttons'>
           {
             !isActive  ?
-              <button onClick={handleStart}>Start</button>
-              : <button onClick={handleStop} >Stop</button>
+              <button onClick={start}>Start</button>
+              : <button onClick={stop} >Stop</button>
           }
-         {isPaused ? <button onClick={handlePause}>Wait</button> :
-                  <button onClick={handleResume} disabled={!isActive}>Resume</button>}
-          <button onClick={handleReset} disabled={!isActive}>Reset</button>
+         {isPaused ? <button onClick={pause}>Wait</button> :
+                  <button onClick={resume} disabled={!isActive}>Resume</button>}
+          <button onClick={reset} disabled={!isActive}>Reset</button>
         </div>
       </div>
     </div>
